@@ -26,7 +26,8 @@ def load_data(data_dir, test_size):
         os.path.join(os.getcwd(), data_dir, "driving_log.csv"),
         names=["center", "left", "right", "steering", "throttle", "reverse", "speed"],
     )
-    df = rebalance_data(df)
+    print(df.steering.value_counts())
+    #df = rebalance_data(df)
     X = df[["center", "left", "right"]].values
     Y = df["steering"].values
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=test_size)
